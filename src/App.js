@@ -5,6 +5,8 @@ import wine from './wine.json'
 function App() {
   const [state, setState] = useState("Flavanoids")
   const [array, setArray] = useState(wine)
+
+  // function use for toggle button to switch between states
   const handleTable = () => {
     if (state === "Flavanoids") {
       setState("Gamma")
@@ -12,6 +14,7 @@ function App() {
       setState("Flavanoids")
     }
   }
+  // Useeffect is used for adding property of Gamma with calculated values
   useEffect(() => {
     let data = [...array]
     data = data.map((item) => {
@@ -22,6 +25,7 @@ function App() {
     })
     setArray([...data])
   }, [])
+  // Grouping data to map table
   var groupedData = array.reduce(function (result, current) {
     var category = current?.Alcohol;
     if (!result[category]) {
@@ -36,7 +40,6 @@ function App() {
       <Table groupedData={groupedData} property={state} />
       <div className="btn_container">
         <button onClick={() => handleTable()}>Change to {state === "Flavanoids" ? "Gamma" : "Flavanoids"}</button>
-
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+// its a common function for caluclate mean
 export function calculateMean(numbers, property) {
   var sum = 0;
   var count = numbers.length;
@@ -7,6 +8,7 @@ export function calculateMean(numbers, property) {
   return (sum / count).toFixed(3);
 }
 
+// its a common function for caluclate median
 export function calculateMedian(array, property) {
   let numbers = array.map((item) => item[property])
   var sortedNumbers = numbers.slice().sort(function (a, b) {
@@ -21,6 +23,7 @@ export function calculateMedian(array, property) {
   }
 }
 
+// common function for calculate mode
 export const calculateMode = (array, property) => {
   let arr = array.map((item) => item[property])
   const mode = {};
